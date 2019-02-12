@@ -1,4 +1,5 @@
 use v6;
+
 use XML;
 
 =begin LICENSE
@@ -22,7 +23,7 @@ role Printing::Jdf::Pool {
 class Printing::Jdf::AuditPool is Printing::Jdf::Pool {
     has %!created;
 
-    method Created returns Hash {
+    method Created( --> Hash ) {
         return %!created if %!created;
         my XML::Element $c = Printing::Jdf::get($.Pool, "Created");
         %!created =
@@ -39,7 +40,7 @@ class Printing::Jdf::ResourcePool is Printing::Jdf::Pool {
     has %!layout;
     has @!runlist;
 
-    method ColorantOrder returns List {
+    method ColorantOrder( --> List ) {
         return @!colorantOrder if @!colorantOrder;
         my XML::Element $co = Printing::Jdf::get($.Pool, <ColorantOrder>, Recurse => 1);
         my XML::Element @ss = Printing::Jdf::get($co, <SeparationSpec>, Single => False);
@@ -47,7 +48,7 @@ class Printing::Jdf::ResourcePool is Printing::Jdf::Pool {
         return @!colorantOrder;
     }
 
-    method Layout returns Hash {
+    method Layout( --> Hash ) {
         return %!layout if %!layout;
         my XML::Element $layout = Printing::Jdf::get($.Pool, <Layout>);
         my Str @pa = $layout<SSi:JobPageAdjustments>.split(' ');
@@ -63,7 +64,7 @@ class Printing::Jdf::ResourcePool is Printing::Jdf::Pool {
         return %!layout;
     }
 
-    method Runlist returns Array {
+    method Runlist( --> Array ) {
         return @!runlist if @!runlist;
         my XML::Element $runlist = Printing::Jdf::get($.Pool, <RunList>);
         my XML::Element @runlists = Printing::Jdf::get($runlist, <RunList>, Single => False);
@@ -96,7 +97,7 @@ class Printing::Jdf::ResourcePool is Printing::Jdf::Pool {
         return @!runlist;
     }
 
-    sub parseSignatures(@signatures) returns Array {
+    sub parseSignatures(@signatures --> Array ) {
         my Hash @s;
         for @signatures {
             my $eit = Printing::Jdf::get($_, <SSi:ExternalImpositionTemplate>);
@@ -111,13 +112,13 @@ class Printing::Jdf::ResourcePool is Printing::Jdf::Pool {
         return @s;
     }
 
-    our sub parseOffset($offset) returns Hash {
+    our sub parseOffset($offset --> Hash ) {
         my Str @sets = $offset.split(' ');
         @sets = ('0', '0') if $offset eq "0";
         return { X => Printing::Jdf::mm(@sets[0]), Y => Printing::Jdf::mm(@sets[1]) };
     }
 
-    our sub parseScaling($scaling) returns Hash {
+    our sub parseScaling($scaling --> Hash ) {
         my Str @sc = $scaling.split(' ');
         return { X => @sc[0]*100, Y => @sc[1]*100 };
     }
@@ -128,7 +129,7 @@ class Printing::Jdf {
     has Printing::Jdf::AuditPool $.AuditPool;
     has Printing::Jdf::ResourcePool $.ResourcePool;
 
-    method new(Str $jdf-xml) returns Printing::Jdf {
+    method new(Str $jdf-xml --> Printing::Jdf ) {
         my XML::Document $jdf = from-xml($jdf-xml);
         my Printing::Jdf::AuditPool $AuditPool .= new(getPool($jdf, "AuditPool"));
         my Printing::Jdf::ResourcePool $ResourcePool .= new(getPool($jdf, "ResourcePool"));
@@ -139,21 +140,21 @@ class Printing::Jdf {
         return $xml.elements(:$TAG, SINGLE => $Single, RECURSE => $Recurse);
     }
 
-    sub getPool(XML::Document $xml, Str $name) returns XML::Element {
+    sub getPool(XML::Document $xml, Str $name --> XML::Element ) {
         return $xml.elements(TAG => $name, :SINGLE);
     }
 
-    our proto mm($pts) returns Int { * }
+    our proto mm($pts --> Int ) { * }
 
-    our multi sub mm(Str $pts) returns Int {
+    our multi sub mm(Str $pts --> Int ) {
         mm($pts.Rat);
     }
 
-    our multi sub mm(Int $pts) returns Int {
+    our multi sub mm(Int $pts --> Int ) {
         mm($pts.Rat);
     }
 
-    our multi sub mm(Rat $pts) returns Int {
+    our multi sub mm(Rat $pts --> Int ) {
         my Rat constant $inch = 25.4;
         my Rat constant $mm = $inch / 72;
         return ($mm * $pts).round;
