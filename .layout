@@ -1,82 +1,5 @@
 {
-  "type": "layout",
   "children": [
-    {
-      "purpose": null,
-      "children": [
-        {
-          "type": "file",
-          "name": "imposition.pl6"
-        }
-      ],
-      "type": "directory",
-      "name": "examples"
-    },
-    {
-      "type": "directory",
-      "children": [
-        {
-          "name": "01-jdf.t",
-          "type": "file"
-        },
-        {
-          "name": "BlankPageTest.jdf",
-          "type": "file"
-        },
-        {
-          "name": "04-blank.t",
-          "type": "file"
-        },
-        {
-          "type": "file",
-          "name": "TestJobFile.jdf"
-        },
-        {
-          "type": "file",
-          "name": "03-centered.t"
-        },
-        {
-          "type": "file",
-          "name": "001-meta.t"
-        },
-        {
-          "name": "02-multisig.t",
-          "type": "file"
-        },
-        {
-          "name": "MultiSigTest.jdf",
-          "type": "file"
-        }
-      ],
-      "name": "t",
-      "purpose": null
-    },
-    {
-      "type": "file",
-      "name": "LICENSE"
-    },
-    {
-      "name": "README.md",
-      "type": "file"
-    },
-    {
-      "children": [
-        {
-          "type": "directory",
-          "children": [
-            {
-              "type": "file",
-              "name": "Jdf.pm6"
-            }
-          ],
-          "name": "Printing",
-          "purpose": null
-        }
-      ],
-      "type": "directory",
-      "name": "lib",
-      "purpose": null
-    },
     {
       "name": "META6.json",
       "type": "file"
@@ -84,6 +7,83 @@
     {
       "name": "Changes",
       "type": "file"
+    },
+    {
+      "type": "file",
+      "name": "LICENSE"
+    },
+    {
+      "type": "directory",
+      "purpose": null,
+      "name": "examples",
+      "children": [
+        {
+          "type": "file",
+          "name": "imposition"
+        }
+      ]
+    },
+    {
+      "purpose": null,
+      "name": "t",
+      "type": "directory",
+      "children": [
+        {
+          "name": "01-jdf.t",
+          "type": "file"
+        },
+        {
+          "name": "TestJobFile.jdf",
+          "type": "file"
+        },
+        {
+          "type": "file",
+          "name": "MultiSigTest.jdf"
+        },
+        {
+          "name": "02-multisig.t",
+          "type": "file"
+        },
+        {
+          "type": "file",
+          "name": "03-centered.t"
+        },
+        {
+          "type": "file",
+          "name": "BlankPageTest.jdf"
+        },
+        {
+          "name": "04-blank.t",
+          "type": "file"
+        },
+        {
+          "name": "001-meta.t",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "lib",
+      "type": "directory",
+      "children": [
+        {
+          "purpose": null,
+          "type": "directory",
+          "name": "Printing",
+          "children": [
+            {
+              "type": "file",
+              "name": "Jdf.pm6"
+            }
+          ]
+        }
+      ],
+      "purpose": null
+    },
+    {
+      "name": "README.md",
+      "type": "file"
     }
-  ]
+  ],
+  "type": "layout"
 }

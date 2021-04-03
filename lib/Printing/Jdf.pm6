@@ -162,4 +162,4 @@ class Printing::Jdf {
     }
 }
 
-# vim: ft=perl6 ts=4
+# vim: ft=raku ts=4

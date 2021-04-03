@@ -48,4 +48,4 @@ is $page7<Scaling>, { X => 100, Y => 100 }, 'page 7 scaling';
 is Printing::Jdf::ResourcePool::parseOffset("27 -11"), {X => 10, Y => -4}, 'parseOffset';
 is Printing::Jdf::ResourcePool::parseScaling("0.97 0.85"), {X => 97, Y => 85}, 'scaling';
 
-# vim: ft=perl6
+# vim: ft=raku

@@ -18,4 +18,4 @@ $page2 = $runlist[2 - 1];
 
 is $page2<IsBlank>, False, 'attribute indicates page is not blank';
 
-# vim: ft=perl6
+# vim: ft=raku

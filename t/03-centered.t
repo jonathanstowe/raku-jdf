@@ -10,4 +10,4 @@ is $page42<Centered>, True, 'is centered';
 is $page42<Offsets>, { X => -3, Y => -3}, 'offsets correct';
 
 
-# vim: ft=perl6
+# vim: ft=raku

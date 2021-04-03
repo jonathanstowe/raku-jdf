@@ -1,13 +1,13 @@
 {
   "name": "Printing::Jdf",
-  "version": "0.1.1",
-  "auth": "github:carbin",
+  "version": "0.1.2",
+  "auth": "github:jonathanstowe",
   "api" : "1.0",
   "authors": [
 	"carbin",
     "Jonathan Stowe"
   ],
-  "meta-version": "0",
+  "meta-version": "1",
   "tags": [
 	"printing",
     "jdf"
@@ -21,11 +21,11 @@
   "depends": [
     "XML"
   ],
-  "source-url": "git://github.com/jonathanstowe/p6-jdf.git",
+  "source-url": "https://github.com/jonathanstowe/raku-jdf.git",
   "build-depends": [ ],
   "support": {
-    "source": "git://github.com/jonathanstowe/p6-jdf.git"
+    "source": "https://github.com/jonathanstowe/raku-jdf.git"
   },
   "resources": [ ],
-  "perl": "6.*"
+  "raku": "6.*"
 }

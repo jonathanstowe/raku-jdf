@@ -19,4 +19,4 @@ is $s[3-1]<Template>.basename, $sixteen, 'sixteen page template';
 is $s[4-1]<Template>.basename, $sixteen, 'sixteen page template';
 is $s[5-1]<Template>.basename, $sixteen, 'sixteen page template';
 
-# vim: ft=perl6
+# vim: ft=raku
