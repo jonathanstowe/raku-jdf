@@ -1,31 +1,34 @@
 {
-  "name": "Printing::Jdf",
-  "version": "0.1.2",
-  "auth": "github:jonathanstowe",
-  "api" : "1.0",
-  "authors": [
-	"carbin",
-    "Jonathan Stowe"
+  "api": "1.0",
+  "depends": [
+    "XML"
   ],
   "meta-version": "1",
+  "name": "Printing::Jdf",
+  "resources": [
+  ],
+  "authors": [
+    "carbin",
+    "Jonathan Stowe"
+  ],
+  "auth": "zef:jonathanstowe",
+  "raku": "6.*",
   "tags": [
-	"printing",
+    "printing",
     "jdf"
   ],
-  "test-depends": [ ],
+  "build-depends": [
+  ],
+  "version": "0.1.3",
+  "test-depends": [
+  ],
   "description": "Parse JDF files",
   "license": "ISC",
   "provides": {
     "Printing::Jdf": "lib/Printing/Jdf.pm6"
   },
-  "depends": [
-    "XML"
-  ],
   "source-url": "https://github.com/jonathanstowe/raku-jdf.git",
-  "build-depends": [ ],
   "support": {
     "source": "https://github.com/jonathanstowe/raku-jdf.git"
-  },
-  "resources": [ ],
-  "raku": "6.*"
+  }
 }
